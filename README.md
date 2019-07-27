@@ -3,6 +3,8 @@
 Sample App using:
 - ElasticBeanStalk , c# .net core 2.2 
 - ElasticCache, redis
+- GET /api/values sets cache key '1' to 'hello world'
+- GET /api/values/1 gets cache key '1' and returns the value
 
 Quick vague instructions :) 
 1. Git clone the repo
