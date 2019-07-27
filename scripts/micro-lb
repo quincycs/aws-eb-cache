@@ -1,0 +1,99 @@
+EnvironmentConfigurationMetadata:
+  Description: $14/month , when scaled at 1 instance.  This is load balanced with max of 2 instances.
+  DateCreated: '1563655161000'
+  DateModified: '1563655161000'
+Platform:
+  PlatformArn: arn:aws:elasticbeanstalk:us-east-2::platform/IIS 10.0 running on 64bit Windows Server 2016/2.1.0
+OptionSettings:
+  aws:elasticbeanstalk:command:
+    BatchSize: '1'
+    BatchSizeType: Fixed
+    DeploymentPolicy: Rolling
+  AWSEBAutoScalingGroup.aws:autoscaling:updatepolicy:rollingupdate:
+    MinInstancesInService: '1'
+    PauseTime: PT1H
+    MaxBatchSize: '1'
+    RollingUpdateEnabled: true
+  aws:autoscaling:asg:
+    Custom Availability Zones: us-east-2a,us-east-2b
+  aws:elasticbeanstalk:managedactions:
+    ManagedActionsEnabled: true
+    PreferredStartTime: SUN:07:00
+  aws:elasticbeanstalk:xray:
+    XRayEnabled: true
+  aws:elasticbeanstalk:managedactions:platformupdate:
+    UpdateLevel: minor
+    InstanceRefreshEnabled: true
+  aws:elasticbeanstalk:sns:topics:
+    Notification Endpoint: email@email.com
+  AWSEBAutoScalingGroup.aws:autoscaling:asg:
+    MaxSize: '2'
+  aws:elasticbeanstalk:hostmanager:
+    LogPublicationControl: true
+  aws:elasticbeanstalk:cloudwatch:logs:
+    DeleteOnTerminate: true
+    StreamLogs: true
+  aws:elasticbeanstalk:environment:
+    ServiceRole: aws-elasticbeanstalk-service-role
+    LoadBalancerType: application
+  aws:elasticbeanstalk:healthreporting:system:
+    ConfigDocument:
+      Version: 1
+      CloudWatchMetrics:
+        Instance:
+          ApplicationRequests5xx: 60
+          ApplicationRequests4xx: 60
+          CPUUser: 60
+          CPUPrivileged: 60
+          ApplicationLatencyP50: 60
+          CPUIdle: 60
+          InstanceHealth: 60
+          ApplicationLatencyP95: 60
+          ApplicationLatencyP85: 60
+          ApplicationLatencyP90: 60
+          ApplicationLatencyP75: 60
+          ApplicationLatencyP10: 60
+          ApplicationLatencyP99: 60
+          ApplicationRequestsTotal: 60
+          ApplicationLatencyP99.9: 60
+          ApplicationRequests3xx: 60
+          ApplicationRequests2xx: 60
+        Environment:
+          InstancesSevere: 60
+          InstancesDegraded: 60
+          ApplicationRequests5xx: 60
+          ApplicationRequests4xx: 60
+          ApplicationLatencyP50: 60
+          ApplicationLatencyP95: 60
+          ApplicationLatencyP85: 60
+          InstancesUnknown: 60
+          ApplicationLatencyP90: 60
+          InstancesInfo: 60
+          InstancesPending: 60
+          ApplicationLatencyP75: 60
+          ApplicationLatencyP10: 60
+          ApplicationLatencyP99: 60
+          ApplicationRequestsTotal: 60
+          InstancesNoData: 60
+          ApplicationLatencyP99.9: 60
+          ApplicationRequests3xx: 60
+          ApplicationRequests2xx: 60
+          InstancesOk: 60
+          InstancesWarning: 60
+      Rules:
+        Environment:
+          Application:
+            ApplicationRequests4xx:
+              Enabled: true
+    SystemType: enhanced
+  aws:autoscaling:launchconfiguration:
+    RootVolumeSize: '31'
+    IamInstanceProfile: aws-elasticbeanstalk-ec2-role
+    InstanceType: t3.micro
+  aws:elasticbeanstalk:cloudwatch:logs:health:
+    HealthStreamingEnabled: true
+    DeleteOnTerminate: true
+EnvironmentTier:
+  Type: Standard
+  Name: WebServer
+AWSConfigurationTemplateVersion: 1.1.0.0
