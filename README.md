@@ -6,7 +6,7 @@ Sample App using:
 - GET /api/values sets cache key '1' to 'hello world'
 - GET /api/values/1 gets cache key '1' and returns the value
 
-Quick vague instructions :) 
+Setup Overview
 
 1. Git clone the repo
 
