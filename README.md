@@ -7,14 +7,23 @@ Sample App using:
 - GET /api/values/1 gets cache key '1' and returns the value
 
 Quick vague instructions :) 
+
 1. Git clone the repo
+
 2. Install .net core 2.2 SDK
+
 3. Create ElasticCache - redis cluster
-    a. Edit code to use this cluster's endpoint.
+
+    * Edit code to use this cluster's endpoint.
+
 4. Load in configuration 'micro-lb' 
-    a. Create any configuration, and save it.  Then go into S3 and copy/paste this template and replace everything in the existing configuration file.
+
+    * Create any configuration, and save it.  Then go into S3 and copy/paste this template and replace everything in the existing configuration file.
+
 5. Create/verify security group on elasticcache that it's TCP port 6379 is open for the beanstalk's security group.
+
 6. Create & Upload deployment zip
+
 7. To tear down, delete the inbound rule created in #5, and then terminate the EB environment & cache cluster.
 
 ## /scripts 
@@ -31,3 +40,5 @@ Quick vague instructions :)
 * https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/dotnet-core-tutorial.html#dotnet-core-tutorial-generate
 
 * https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/accessing-elasticache.html#grant-access
+
+* https://forums.aws.amazon.com/thread.jspa?threadID=306753
